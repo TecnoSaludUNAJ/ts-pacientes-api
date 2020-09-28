@@ -20,7 +20,17 @@ namespace TP_Application.Services
 
         public ObraSocial CreateObraSocial(ObraSocialDTO obrasocial)
         {
-            throw new NotImplementedException();
+            //this
+            ObraSocial entity = new ObraSocial
+            {
+                ObraSocial_Nombre = obrasocial.ObraSocial_Nombre,
+                ObraSocial_Sigla = obrasocial.ObraSocial_Sigla
+            };
+
+            _repository.Add<ObraSocial>(entity);
+
+            return entity;
+            //end
         }
 
         public List<ResponseObraSocialDTO> GetAllObrasSociales()
