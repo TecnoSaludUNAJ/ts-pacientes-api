@@ -21,7 +21,25 @@ namespace TP_Application.Services
 
         public Paciente CreatePaciente(PacienteDTO paciente)
         {
-            throw new NotImplementedException();
+            Paciente entity = new Paciente
+            {
+                Apellido = paciente.Apellido,
+                DNI = paciente.DNI,
+                Domicilio = paciente.Domicilio,
+                Email = paciente.Email,
+                Estado_Civil = paciente.Estado_Civil,
+                Fecha_Nacim = paciente.Fecha_Nacim,
+                Nacionalidad = paciente.Nacionalidad,
+                Nombre = paciente.Nombre,
+                ObraSocial_Id = paciente.ObraSocial_Id,
+                Sexo = paciente.Sexo,
+                Telefono = paciente.Telefono,
+                Usuario_Id = paciente.Usuario_Id
+            };
+
+            _repository.Add<Paciente>(entity);
+
+            return entity;
         }
 
         public List<ResponsePacienteDTO> GetAllPacientes()
