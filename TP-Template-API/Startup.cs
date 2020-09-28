@@ -52,8 +52,12 @@ namespace TP_Template_API
             // services
 
             services.AddTransient<IGenericRepository, GenericsRepository>();
+            // Paciente services
             services.AddTransient<IPacienteService, PacienteService>();
             services.AddTransient<IPacienteQuery, PacienteQuery>();
+            // ObraSocial services
+            services.AddTransient<IObraSocialService, ObraSocialService>();
+            services.AddTransient<IObraSocialQuery, ObraSocialQuery>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
