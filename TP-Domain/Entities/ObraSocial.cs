@@ -11,5 +11,7 @@ namespace TP_Domain.Entities
         [Key]
         public int ObraSocial_Id { get; set; }
         public string ObraSocial_Nombre { get; set; }
+
+        public string ObraSocial_Sigla { get; set; }
     }
 }

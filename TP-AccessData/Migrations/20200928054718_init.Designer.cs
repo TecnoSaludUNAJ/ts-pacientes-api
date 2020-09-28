@@ -10,7 +10,7 @@ using TP_AccessData;
 namespace TP_AccessData.Migrations
 {
     [DbContext(typeof(TemplateDbContext))]
-    [Migration("20200928051752_init")]
+    [Migration("20200928054718_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,9 +31,26 @@ namespace TP_AccessData.Migrations
                     b.Property<string>("ObraSocial_Nombre")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ObraSocial_Sigla")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ObraSocial_Id");
 
                     b.ToTable("ObrasSociales");
+
+                    b.HasData(
+                        new
+                        {
+                            ObraSocial_Id = 1,
+                            ObraSocial_Nombre = "O.S. de Empresarios Profesionales y Monotributistas",
+                            ObraSocial_Sigla = "OSDEPYM"
+                        },
+                        new
+                        {
+                            ObraSocial_Id = 2,
+                            ObraSocial_Nombre = "O.S. de los Empleados de Comercio y Actividades Civiles",
+                            ObraSocial_Sigla = "OSECAC"
+                        });
                 });
 
             modelBuilder.Entity("TP_Domain.Entities.Paciente", b =>
@@ -87,6 +104,40 @@ namespace TP_AccessData.Migrations
                     b.HasIndex("ObraSocial_Id1");
 
                     b.ToTable("Pacientes");
+
+                    b.HasData(
+                        new
+                        {
+                            Paciente_Id = 1,
+                            Apellido = "Doe",
+                            DNI = 40000000,
+                            Domicilio = "Calle Falsa 123, Springfield",
+                            Email = "johndoe@mail.com",
+                            Estado_Civil = "Soltero",
+                            Fecha_Nacim = new DateTime(1997, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nacionalidad = "argentina",
+                            Nombre = "John",
+                            ObraSocial_Id = 1,
+                            Sexo = "masculino",
+                            Telefono = "1234-4566",
+                            Usuario_Id = 1
+                        },
+                        new
+                        {
+                            Paciente_Id = 2,
+                            Apellido = "Doe",
+                            DNI = 40000000,
+                            Domicilio = "Cochabamba 1614, segundo piso, corredor cuatro",
+                            Email = "janedoe@mail.com",
+                            Estado_Civil = "soltero",
+                            Fecha_Nacim = new DateTime(1998, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nacionalidad = "argentina",
+                            Nombre = "Jane",
+                            ObraSocial_Id = 1,
+                            Sexo = "femenino",
+                            Telefono = "7777-4566",
+                            Usuario_Id = 2
+                        });
                 });
 
             modelBuilder.Entity("TP_Domain.Entities.Paciente", b =>
