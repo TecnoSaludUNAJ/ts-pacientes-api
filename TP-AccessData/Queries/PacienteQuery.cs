@@ -35,7 +35,12 @@ namespace TP_AccessData.Queries
 
         public ResponsePacienteDTO GetById(int id)
         {
-            throw new NotImplementedException();
+            var db = new QueryFactory(connection, sqlKataCompiler);
+
+            var query = db.Query("Pacientes")
+                .Where("Paciente_Id", "=", id);
+
+            return query.FirstOrDefault<ResponsePacienteDTO>();
         }
     }
 }

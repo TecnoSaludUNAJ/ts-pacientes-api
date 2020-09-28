@@ -31,7 +31,7 @@ namespace TP_Application.Services
 
         public ResponsePacienteDTO GetById(int id)
         {
-            throw new NotImplementedException();
+            return _query.GetById(id);
         }
     }
 }
