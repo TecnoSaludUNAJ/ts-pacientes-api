@@ -18,6 +18,11 @@ namespace TP_AccessData
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            // FK
+            builder.Entity<Paciente>()
+            .HasOne<ObraSocial>(p => p.ObraSocial)
+            .WithMany(o => o.Pacientes)
+            .HasForeignKey(p => p.ObraSocial_Id);
             // LOAD ObraSocial DATA
             builder.Entity<ObraSocial>().HasData(
                 new ObraSocial

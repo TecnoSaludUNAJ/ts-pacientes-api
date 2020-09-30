@@ -85,9 +85,6 @@ namespace TP_AccessData.Migrations
                     b.Property<int>("ObraSocial_Id")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ObraSocial_Id1")
-                        .HasColumnType("int");
-
                     b.Property<string>("Sexo")
                         .HasColumnType("nvarchar(max)");
 
@@ -99,7 +96,7 @@ namespace TP_AccessData.Migrations
 
                     b.HasKey("Paciente_Id");
 
-                    b.HasIndex("ObraSocial_Id1");
+                    b.HasIndex("ObraSocial_Id");
 
                     b.ToTable("Pacientes");
 
@@ -141,8 +138,10 @@ namespace TP_AccessData.Migrations
             modelBuilder.Entity("TP_Domain.Entities.Paciente", b =>
                 {
                     b.HasOne("TP_Domain.Entities.ObraSocial", "ObraSocial")
-                        .WithMany()
-                        .HasForeignKey("ObraSocial_Id1");
+                        .WithMany("Pacientes")
+                        .HasForeignKey("ObraSocial_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
