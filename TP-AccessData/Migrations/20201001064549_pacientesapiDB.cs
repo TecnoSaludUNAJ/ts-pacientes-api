@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TP_AccessData.Migrations
 {
-    public partial class init : Migration
+    public partial class pacientesapiDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,8 @@ namespace TP_AccessData.Migrations
                 {
                     ObraSocial_Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ObraSocial_Nombre = table.Column<string>(nullable: true),
-                    ObraSocial_Sigla = table.Column<string>(nullable: true)
+                    ObraSocial_Nombre = table.Column<string>(nullable: false),
+                    ObraSocial_Sigla = table.Column<string>(maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,15 +27,15 @@ namespace TP_AccessData.Migrations
                 {
                     Paciente_Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(nullable: true),
-                    Apellido = table.Column<string>(nullable: true),
+                    Nombre = table.Column<string>(nullable: false),
+                    Apellido = table.Column<string>(nullable: false),
                     Fecha_Nacim = table.Column<DateTime>(nullable: false),
-                    Sexo = table.Column<string>(nullable: true),
-                    Domicilio = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Telefono = table.Column<string>(nullable: true),
-                    Estado_Civil = table.Column<string>(nullable: true),
-                    Nacionalidad = table.Column<string>(nullable: true),
+                    Sexo = table.Column<string>(nullable: false),
+                    Domicilio = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Telefono = table.Column<string>(nullable: false),
+                    Estado_Civil = table.Column<string>(nullable: false),
+                    Nacionalidad = table.Column<string>(nullable: false),
                     ObraSocial_Id = table.Column<int>(nullable: false),
                     DNI = table.Column<int>(nullable: false),
                     Usuario_Id = table.Column<int>(nullable: false)
@@ -64,12 +64,12 @@ namespace TP_AccessData.Migrations
             migrationBuilder.InsertData(
                 table: "Pacientes",
                 columns: new[] { "Paciente_Id", "Apellido", "DNI", "Domicilio", "Email", "Estado_Civil", "Fecha_Nacim", "Nacionalidad", "Nombre", "ObraSocial_Id", "Sexo", "Telefono", "Usuario_Id" },
-                values: new object[] { 1, "Doe", 40000000, "Calle Falsa 123, Springfield", "johndoe@mail.com", "Soltero", new DateTime(1997, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "argentina", "John", 1, "masculino", "1234-4566", 1 });
+                values: new object[] { 1, "White", 12545467, "Albuquerque, Nuevo Mexico", "walterwhite@mail.com", "casado", new DateTime(1959, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Estados Unidos", "Walter", 1, "masculino", "555-1258", 1 });
 
             migrationBuilder.InsertData(
                 table: "Pacientes",
                 columns: new[] { "Paciente_Id", "Apellido", "DNI", "Domicilio", "Email", "Estado_Civil", "Fecha_Nacim", "Nacionalidad", "Nombre", "ObraSocial_Id", "Sexo", "Telefono", "Usuario_Id" },
-                values: new object[] { 2, "Doe", 40000000, "Cochabamba 1614, segundo piso, corredor cuatro", "janedoe@mail.com", "soltero", new DateTime(1998, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "argentina", "Jane", 1, "femenino", "7777-4566", 2 });
+                values: new object[] { 2, "White", 891011234, "4565st, Albuquerque, Nuevo Mexico", "skylerwhite@brba.com", "casada", new DateTime(1970, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Estados Unidos", "Skyler", 2, "femenino", "9999-8888", 2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Pacientes_ObraSocial_Id",

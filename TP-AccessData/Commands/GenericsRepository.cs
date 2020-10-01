@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using TP_Domain.Commands;
 
 namespace TP_AccessData.Commands
