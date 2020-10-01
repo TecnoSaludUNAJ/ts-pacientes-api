@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TP_AccessData.ModelConfigs;
 using TP_Domain.Entities;
 

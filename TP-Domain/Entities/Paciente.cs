@@ -7,7 +7,6 @@ namespace TP_Domain.Entities
 {
     public class Paciente
     {
-        [Key]
         public int Paciente_Id { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
