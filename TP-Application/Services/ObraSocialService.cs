@@ -20,7 +20,8 @@ namespace TP_Application.Services
 
         public ObraSocial CreateObraSocial(ObraSocialDTO obrasocial)
         {
-            //this
+            if (obrasocial.ObraSocial_Nombre == "" || obrasocial.ObraSocial_Sigla == "")
+                throw new Exception("Error: Los parametros ingresados no pueden estar vacios.");
             ObraSocial entity = new ObraSocial
             {
                 ObraSocial_Nombre = obrasocial.ObraSocial_Nombre,
@@ -30,7 +31,6 @@ namespace TP_Application.Services
             _repository.Add<ObraSocial>(entity);
 
             return entity;
-            //end
         }
 
         public List<ResponseObraSocialDTO> GetAllObrasSociales()
@@ -40,6 +40,8 @@ namespace TP_Application.Services
 
         public ResponseObraSocialDTO GetById(int id)
         {
+            if (id <= 1)
+                throw new Exception("Error: Valor ingresado no válido. El campo ID no acepta valores numericos menores a 1");
             return _query.GetById(id);
         }
     }

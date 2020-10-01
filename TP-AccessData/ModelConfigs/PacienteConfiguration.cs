@@ -28,6 +28,8 @@ namespace TP_AccessData.ModelConfigs
             builder.Property(p => p.Sexo).IsRequired();
             builder.Property(p => p.Telefono).IsRequired();
 
+            builder.HasAlternateKey(p => new { p.DNI, p.Usuario_Id });
+
             // PRELOAD Paciente
             builder.HasData(
                 new Paciente

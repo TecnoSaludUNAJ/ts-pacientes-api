@@ -10,7 +10,7 @@ using TP_AccessData;
 namespace TP_AccessData.Migrations
 {
     [DbContext(typeof(TemplateDbContext))]
-    [Migration("20201001064549_pacientesapiDB")]
+    [Migration("20201001071956_pacientes-api-DB")]
     partial class pacientesapiDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,8 @@ namespace TP_AccessData.Migrations
                         .HasMaxLength(20);
 
                     b.HasKey("ObraSocial_Id");
+
+                    b.HasAlternateKey("ObraSocial_Sigla");
 
                     b.ToTable("ObrasSociales");
 
@@ -108,6 +110,8 @@ namespace TP_AccessData.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Paciente_Id");
+
+                    b.HasAlternateKey("DNI", "Usuario_Id");
 
                     b.HasIndex("ObraSocial_Id");
 

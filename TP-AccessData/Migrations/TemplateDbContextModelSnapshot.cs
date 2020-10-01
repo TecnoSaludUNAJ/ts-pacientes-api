@@ -37,6 +37,8 @@ namespace TP_AccessData.Migrations
 
                     b.HasKey("ObraSocial_Id");
 
+                    b.HasAlternateKey("ObraSocial_Sigla");
+
                     b.ToTable("ObrasSociales");
 
                     b.HasData(
@@ -106,6 +108,8 @@ namespace TP_AccessData.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Paciente_Id");
+
+                    b.HasAlternateKey("DNI", "Usuario_Id");
 
                     b.HasIndex("ObraSocial_Id");
 

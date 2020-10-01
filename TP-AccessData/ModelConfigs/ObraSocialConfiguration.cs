@@ -14,6 +14,7 @@ namespace TP_AccessData.ModelConfigs
             builder.Property(o => o.ObraSocial_Nombre).IsRequired();
             builder.Property(o => o.ObraSocial_Sigla).IsRequired().HasMaxLength(20);
 
+            builder.HasAlternateKey(o => o.ObraSocial_Sigla);
             // LOAD ObraSocial DATA
             builder.HasData(
                 new ObraSocial

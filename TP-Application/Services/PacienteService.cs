@@ -21,6 +21,12 @@ namespace TP_Application.Services
 
         public Paciente CreatePaciente(PacienteDTO paciente)
         {
+            if(paciente.Apellido == "" || paciente.Domicilio == "" || paciente.Email == "" || paciente.Estado_Civil == "" || paciente.Nacionalidad == "" || paciente.Nombre == "" || paciente.Sexo == "" || paciente.Telefono == "")
+                throw new Exception("Error al ingresar parametros: Ningun parametro ingresado puede estar vacio.");
+            if (paciente.DNI <= 0 || paciente.Usuario_Id <= 0|| paciente.ObraSocial_Id <= 0)
+                throw new Exception("Error: Valor ingresado no válido: No se aceptan valores numeros menores a 1");
+            if (paciente.Fecha_Nacim > DateTime.Today)
+                throw new Exception("Error al ingresar parametros: La fecha de nacimiento no puede ser superior al dia actual.");
             Paciente entity = new Paciente
             {
                 Apellido = paciente.Apellido,
@@ -49,6 +55,8 @@ namespace TP_Application.Services
 
         public ResponsePacienteDTO GetById(int id)
         {
+            if (id < 1)
+                throw new Exception("Error: Valor ingresado no válido. El campo ID no acepta valores numericos menores a 1");
             return _query.GetById(id);
         }
     }

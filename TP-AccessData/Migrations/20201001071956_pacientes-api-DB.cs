@@ -19,6 +19,7 @@ namespace TP_AccessData.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ObrasSociales", x => x.ObraSocial_Id);
+                    table.UniqueConstraint("AK_ObrasSociales_ObraSocial_Sigla", x => x.ObraSocial_Sigla);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,6 +44,7 @@ namespace TP_AccessData.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Pacientes", x => x.Paciente_Id);
+                    table.UniqueConstraint("AK_Pacientes_DNI_Usuario_Id", x => new { x.DNI, x.Usuario_Id });
                     table.ForeignKey(
                         name: "FK_Pacientes_ObrasSociales_ObraSocial_Id",
                         column: x => x.ObraSocial_Id,
