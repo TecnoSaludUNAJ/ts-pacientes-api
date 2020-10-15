@@ -31,7 +31,7 @@ namespace TP_Template_API.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest(new { error = true, message = e.Message });
             }
         }
 
@@ -44,7 +44,7 @@ namespace TP_Template_API.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest(new { error = true, message = e.Message });
             }
         }
 
@@ -62,7 +62,7 @@ namespace TP_Template_API.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest(new { error = true, message = e.Message });
             }
         }
     }

@@ -40,7 +40,7 @@ namespace TP_Application.Services
 
         public ResponseObraSocialDTO GetById(int id)
         {
-            if (id <= 1)
+            if (id < 1)
                 throw new Exception("Error: Valor ingresado no válido. El campo ID no acepta valores numericos menores a 1");
             return _query.GetById(id);
         }

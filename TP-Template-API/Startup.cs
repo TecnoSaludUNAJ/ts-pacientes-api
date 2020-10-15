@@ -83,7 +83,7 @@ namespace TP_Template_API
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Template API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TS Pacientes API V1");
             });
         }
     }
