@@ -58,6 +58,11 @@ namespace TP_Template_API
             // ObraSocial services
             services.AddTransient<IObraSocialService, ObraSocialService>();
             services.AddTransient<IObraSocialQuery, ObraSocialQuery>();
+            // CORS
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +77,8 @@ namespace TP_Template_API
 
             app.UseRouting();
 
+            //cors 
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
