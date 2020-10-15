@@ -8,7 +8,7 @@ namespace TP_Application.Services
 {
     public interface IObraSocialService
     {
-        ObraSocial CreateObraSocial(ObraSocialDTO obrasocial);
+        ResponseObraSocialDTO CreateObraSocial(ObraSocialDTO obrasocial);
         List<ResponseObraSocialDTO> GetAllObrasSociales();
         ResponseObraSocialDTO GetById(int id);
     }

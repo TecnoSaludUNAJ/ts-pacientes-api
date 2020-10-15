@@ -8,7 +8,7 @@ namespace TP_Application.Services
 {
     public interface IPacienteService
     {
-        Paciente CreatePaciente(PacienteDTO paciente);
+        ResponsePacienteDTO CreatePaciente(PacienteDTO paciente);
         List<ResponsePacienteDTO> GetAllPacientes();
         ResponsePacienteDTO GetById(int id);
     }

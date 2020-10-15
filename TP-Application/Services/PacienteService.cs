@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TP_Domain.Commands;
 using TP_Domain.DTOs;
@@ -19,7 +20,7 @@ namespace TP_Application.Services
         }
 
 
-        public Paciente CreatePaciente(PacienteDTO paciente)
+        public ResponsePacienteDTO CreatePaciente(PacienteDTO paciente)
         {
             if(paciente.Apellido == "" || paciente.Domicilio == "" || paciente.Email == "" || paciente.Estado_Civil == "" || paciente.Nacionalidad == "" || paciente.Nombre == "" || paciente.Sexo == "" || paciente.Telefono == "")
                 throw new Exception("Error al ingresar parametros: Ningun parametro ingresado puede estar vacio.");
@@ -45,19 +46,41 @@ namespace TP_Application.Services
 
             _repository.Add<Paciente>(entity);
 
-            return entity;
+
+            return new ResponsePacienteDTO
+            {
+                Paciente_Id = entity.Paciente_Id,
+                Apellido = entity.Apellido,
+                DNI = entity.DNI,
+                Domicilio = entity.Domicilio,
+                Email = entity.Email,
+                Estado_Civil = entity.Estado_Civil,
+                Fecha_Nacim = entity.Fecha_Nacim,
+                Nacionalidad = entity.Nacionalidad,
+                Nombre = entity.Nombre,
+                ObraSocial_Id = entity.ObraSocial_Id,
+                Sexo = entity.Sexo,
+                Telefono = entity.Telefono,
+                Usuario_Id = entity.Usuario_Id,
+            };
         }
 
         public List<ResponsePacienteDTO> GetAllPacientes()
         {
-            return _query.GetAllPacientes();
+            List<ResponsePacienteDTO> pacientesList = _query.GetAllPacientes();
+            if (!pacientesList.Any())
+                throw new Exception("Error: No se encontraron pacientes.");
+            return pacientesList;
         }
 
         public ResponsePacienteDTO GetById(int id)
         {
             if (id < 1)
                 throw new Exception("Error: Valor ingresado no válido. El campo ID no acepta valores numericos menores a 1");
-            return _query.GetById(id);
+            ResponsePacienteDTO pacienteResponse = _query.GetById(id);
+            if (pacienteResponse == null)
+                throw new Exception("Error: No se encontro paciente con id " + id);
+            return pacienteResponse;
         }
     }
 }
