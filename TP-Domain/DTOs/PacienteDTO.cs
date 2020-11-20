@@ -16,7 +16,7 @@ namespace TP_Domain.DTOs
         public string Estado_Civil { get; set; }
         public string Nacionalidad { get; set; }
         public int ObraSocial_Id { get; set; }
-        public int DNI { get; set; }
+        public string DNI { get; set; }
         public int Usuario_Id { get; set; }
     }
 }

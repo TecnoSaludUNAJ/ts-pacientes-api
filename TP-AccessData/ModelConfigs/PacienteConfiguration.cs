@@ -35,7 +35,7 @@ namespace TP_AccessData.ModelConfigs
                 new Paciente
                 {
                     Apellido = "White",
-                    DNI = 12545467,
+                    DNI = "123",
                     Domicilio = "Albuquerque, Nuevo Mexico",
                     Email = "walterwhite@mail.com",
                     Estado_Civil = "casado",
@@ -53,7 +53,7 @@ namespace TP_AccessData.ModelConfigs
                 new Paciente
                 {
                     Apellido = "White",
-                    DNI = 891011234,
+                    DNI = "1234",
                     Domicilio = "4565st, Albuquerque, Nuevo Mexico",
                     Email = "skylerwhite@brba.com",
                     Estado_Civil = "casada",

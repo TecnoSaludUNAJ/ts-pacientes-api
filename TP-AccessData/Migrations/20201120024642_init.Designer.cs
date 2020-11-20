@@ -10,8 +10,8 @@ using TP_AccessData;
 namespace TP_AccessData.Migrations
 {
     [DbContext(typeof(TemplateDbContext))]
-    [Migration("20201110233234_ts-pacientes-api")]
-    partial class tspacientesapi
+    [Migration("20201120024642_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,8 +69,9 @@ namespace TP_AccessData.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DNI")
-                        .HasColumnType("int");
+                    b.Property<string>("DNI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Domicilio")
                         .IsRequired()
@@ -122,7 +123,7 @@ namespace TP_AccessData.Migrations
                         {
                             Paciente_Id = 1,
                             Apellido = "White",
-                            DNI = 12545467,
+                            DNI = "123",
                             Domicilio = "Albuquerque, Nuevo Mexico",
                             Email = "walterwhite@mail.com",
                             Estado_Civil = "casado",
@@ -138,7 +139,7 @@ namespace TP_AccessData.Migrations
                         {
                             Paciente_Id = 2,
                             Apellido = "White",
-                            DNI = 891011234,
+                            DNI = "1234",
                             Domicilio = "4565st, Albuquerque, Nuevo Mexico",
                             Email = "skylerwhite@brba.com",
                             Estado_Civil = "casada",

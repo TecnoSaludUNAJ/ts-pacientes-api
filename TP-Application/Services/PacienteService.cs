@@ -22,9 +22,9 @@ namespace TP_Application.Services
 
         public ResponsePacienteDTO CreatePaciente(PacienteDTO paciente)
         {
-            if(paciente.Apellido == "" || paciente.Domicilio == "" || paciente.Email == "" || paciente.Estado_Civil == "" || paciente.Nacionalidad == "" || paciente.Nombre == "" || paciente.Sexo == "" || paciente.Telefono == "")
+            if(paciente.Apellido == "" || paciente.DNI == "" || paciente.Domicilio == "" || paciente.Email == "" || paciente.Estado_Civil == "" || paciente.Nacionalidad == "" || paciente.Nombre == "" || paciente.Sexo == "" || paciente.Telefono == "")
                 throw new Exception("Error al ingresar parametros: Ningun parametro ingresado puede estar vacio.");
-            if (paciente.DNI <= 0 || paciente.Usuario_Id <= 0|| paciente.ObraSocial_Id <= 0)
+            if (paciente.Usuario_Id <= 0|| paciente.ObraSocial_Id <= 0)
                 throw new Exception("Error: Valor ingresado no válido: No se aceptan valores numeros menores a 1");
             if (paciente.Fecha_Nacim > DateTime.Today)
                 throw new Exception("Error al ingresar parametros: La fecha de nacimiento no puede ser superior al dia actual.");

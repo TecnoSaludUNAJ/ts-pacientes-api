@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TP_AccessData.Migrations
 {
-    public partial class pacientesapiDB : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -38,7 +38,7 @@ namespace TP_AccessData.Migrations
                     Estado_Civil = table.Column<string>(nullable: false),
                     Nacionalidad = table.Column<string>(nullable: false),
                     ObraSocial_Id = table.Column<int>(nullable: false),
-                    DNI = table.Column<int>(nullable: false),
+                    DNI = table.Column<string>(nullable: false),
                     Usuario_Id = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -66,12 +66,12 @@ namespace TP_AccessData.Migrations
             migrationBuilder.InsertData(
                 table: "Pacientes",
                 columns: new[] { "Paciente_Id", "Apellido", "DNI", "Domicilio", "Email", "Estado_Civil", "Fecha_Nacim", "Nacionalidad", "Nombre", "ObraSocial_Id", "Sexo", "Telefono", "Usuario_Id" },
-                values: new object[] { 1, "White", 12545467, "Albuquerque, Nuevo Mexico", "walterwhite@mail.com", "casado", new DateTime(1959, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Estados Unidos", "Walter", 1, "masculino", "555-1258", 1 });
+                values: new object[] { 1, "White", "123", "Albuquerque, Nuevo Mexico", "walterwhite@mail.com", "casado", new DateTime(1959, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Estados Unidos", "Walter", 1, "masculino", "555-1258", 1 });
 
             migrationBuilder.InsertData(
                 table: "Pacientes",
                 columns: new[] { "Paciente_Id", "Apellido", "DNI", "Domicilio", "Email", "Estado_Civil", "Fecha_Nacim", "Nacionalidad", "Nombre", "ObraSocial_Id", "Sexo", "Telefono", "Usuario_Id" },
-                values: new object[] { 2, "White", 891011234, "4565st, Albuquerque, Nuevo Mexico", "skylerwhite@brba.com", "casada", new DateTime(1970, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Estados Unidos", "Skyler", 2, "femenino", "9999-8888", 2 });
+                values: new object[] { 2, "White", "1234", "4565st, Albuquerque, Nuevo Mexico", "skylerwhite@brba.com", "casada", new DateTime(1970, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Estados Unidos", "Skyler", 2, "femenino", "9999-8888", 2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Pacientes_ObraSocial_Id",
