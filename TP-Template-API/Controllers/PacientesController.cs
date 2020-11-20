@@ -65,5 +65,22 @@ namespace TP_Template_API.Controllers
                 return BadRequest(new { error = true, message = e.Message });
             }
         }
+        [HttpGet("dni/{Dni?}")]
+        public IActionResult GetById(string Dni)
+        {
+            try
+            {
+                ResponsePacienteDTO paciente = _service.GetByDNI(Dni);
+                if (paciente != null)
+                {
+                    return new JsonResult(paciente) { StatusCode = 200 };
+                }
+                return new JsonResult(paciente) { StatusCode = 404 };
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { error = true, message = e.Message });
+            }
+        }
     }
 }

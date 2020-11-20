@@ -33,6 +33,16 @@ namespace TP_AccessData.Queries
             return result.ToList();
         }
 
+        public ResponsePacienteDTO GetByDNI(string dni)
+        {
+            var db = new QueryFactory(connection, sqlKataCompiler);
+
+            var query = db.Query("Pacientes")
+                .Where("DNI", "=", dni);
+
+            return query.FirstOrDefault<ResponsePacienteDTO>();
+        }
+
         public ResponsePacienteDTO GetById(int id)
         {
             var db = new QueryFactory(connection, sqlKataCompiler);

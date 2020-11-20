@@ -9,5 +9,6 @@ namespace TP_Domain.Queries
     {
         List<ResponsePacienteDTO> GetAllPacientes();
         ResponsePacienteDTO GetById(int id);
+        ResponsePacienteDTO GetByDNI(string dni);
     }
 }

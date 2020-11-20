@@ -82,5 +82,15 @@ namespace TP_Application.Services
                 throw new Exception("Error: No se encontro paciente con id " + id);
             return pacienteResponse;
         }
+
+        public ResponsePacienteDTO GetByDNI(string dni)
+        {
+            if (dni == "")
+                throw new Exception("Error: el dni ingresado es vacio");
+            ResponsePacienteDTO pacienteResponse = _query.GetByDNI(dni);
+            if (pacienteResponse == null)
+                throw new Exception("Error: No se encontro paciente con dni " + dni);
+            return pacienteResponse;
+        }
     }
 }

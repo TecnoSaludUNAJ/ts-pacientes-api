@@ -11,5 +11,7 @@ namespace TP_Application.Services
         ResponsePacienteDTO CreatePaciente(PacienteDTO paciente);
         List<ResponsePacienteDTO> GetAllPacientes();
         ResponsePacienteDTO GetById(int id);
+
+        ResponsePacienteDTO GetByDNI(string dni);
     }
 }
