@@ -82,5 +82,22 @@ namespace TP_Template_API.Controllers
                 return BadRequest(new { error = true, message = e.Message });
             }
         }
+        [HttpGet("userId/{usuarioId?}")]
+        public IActionResult GetByUsuarioId(int usuarioId)
+        {
+            try
+            {
+                ResponsePacienteDTO paciente = _service.GetByUsuarioId(usuarioId);
+                if (paciente != null)
+                {
+                    return new JsonResult(paciente) { StatusCode = 200 };
+                }
+                return new JsonResult(paciente) { StatusCode = 204 };
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { error = true, message = e.Message });
+            }
+        }
     }
 }

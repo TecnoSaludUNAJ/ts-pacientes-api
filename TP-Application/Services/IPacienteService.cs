@@ -13,5 +13,6 @@ namespace TP_Application.Services
         ResponsePacienteDTO GetById(int id);
 
         ResponsePacienteDTO GetByDNI(string dni);
+        ResponsePacienteDTO GetByUsuarioId(int usuarioId);
     }
 }

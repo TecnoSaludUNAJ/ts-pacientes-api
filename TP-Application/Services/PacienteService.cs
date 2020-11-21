@@ -92,5 +92,13 @@ namespace TP_Application.Services
                 throw new Exception("Error: No se encontro paciente con dni " + dni);
             return pacienteResponse;
         }
+
+        public ResponsePacienteDTO GetByUsuarioId(int usuarioId)
+        {
+            if (usuarioId <= 0)
+                throw new Exception("Error: Valor numero no valido. ");
+            ResponsePacienteDTO pacienteResponse = _query.GetByUsuarioId(usuarioId);
+            return pacienteResponse;
+        }
     }
 }
