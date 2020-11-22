@@ -15,23 +15,6 @@ namespace TP_AccessData.ModelConfigs
             builder.Property(o => o.ObraSocial_Sigla).IsRequired().HasMaxLength(20);
 
             builder.HasAlternateKey(o => o.ObraSocial_Sigla);
-            // LOAD ObraSocial DATA
-            builder.HasData(
-                new ObraSocial
-                {
-                    ObraSocial_Id = 1,
-                    ObraSocial_Nombre = "O.S. de Empresarios Profesionales y Monotributistas",
-                    ObraSocial_Sigla = "OSDEPYM"
-                }
-                );
-            builder.HasData(
-                new ObraSocial
-                {
-                    ObraSocial_Id = 2,
-                    ObraSocial_Nombre = "O.S. de los Empleados de Comercio y Actividades Civiles",
-                    ObraSocial_Sigla = "OSECAC"
-                }
-                );
 
         }
     }

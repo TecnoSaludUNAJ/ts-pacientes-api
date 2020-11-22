@@ -40,20 +40,6 @@ namespace TP_AccessData.Migrations
                     b.HasAlternateKey("ObraSocial_Sigla");
 
                     b.ToTable("ObrasSociales");
-
-                    b.HasData(
-                        new
-                        {
-                            ObraSocial_Id = 1,
-                            ObraSocial_Nombre = "O.S. de Empresarios Profesionales y Monotributistas",
-                            ObraSocial_Sigla = "OSDEPYM"
-                        },
-                        new
-                        {
-                            ObraSocial_Id = 2,
-                            ObraSocial_Nombre = "O.S. de los Empleados de Comercio y Actividades Civiles",
-                            ObraSocial_Sigla = "OSECAC"
-                        });
                 });
 
             modelBuilder.Entity("TP_Domain.Entities.Paciente", b =>
@@ -115,40 +101,6 @@ namespace TP_AccessData.Migrations
                     b.HasIndex("ObraSocial_Id");
 
                     b.ToTable("Pacientes");
-
-                    b.HasData(
-                        new
-                        {
-                            Paciente_Id = 1,
-                            Apellido = "White",
-                            DNI = "123",
-                            Domicilio = "Albuquerque, Nuevo Mexico",
-                            Email = "walterwhite@mail.com",
-                            Estado_Civil = "casado",
-                            Fecha_Nacim = new DateTime(1959, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Nacionalidad = "Estados Unidos",
-                            Nombre = "Walter",
-                            ObraSocial_Id = 1,
-                            Sexo = "masculino",
-                            Telefono = "555-1258",
-                            Usuario_Id = 1
-                        },
-                        new
-                        {
-                            Paciente_Id = 2,
-                            Apellido = "White",
-                            DNI = "1234",
-                            Domicilio = "4565st, Albuquerque, Nuevo Mexico",
-                            Email = "skylerwhite@brba.com",
-                            Estado_Civil = "casada",
-                            Fecha_Nacim = new DateTime(1970, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Nacionalidad = "Estados Unidos",
-                            Nombre = "Skyler",
-                            ObraSocial_Id = 2,
-                            Sexo = "femenino",
-                            Telefono = "9999-8888",
-                            Usuario_Id = 2
-                        });
                 });
 
             modelBuilder.Entity("TP_Domain.Entities.Paciente", b =>
