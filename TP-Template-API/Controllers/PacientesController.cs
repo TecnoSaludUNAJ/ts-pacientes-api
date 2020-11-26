@@ -88,11 +88,11 @@ namespace TP_Template_API.Controllers
             try
             {
                 ResponsePacienteDTO paciente = _service.GetByUsuarioId(usuarioId);
-                if (paciente == null)
+                if (paciente != null)
                 {
-                    return BadRequest(new { error = true, message = "No se encontro paciente." });
+                    return new JsonResult(paciente) { StatusCode = 200 };
                 }
-                return new JsonResult(paciente) { StatusCode = 200 };
+                return new JsonResult(paciente) { StatusCode = 404 };
             }
             catch (Exception e)
             {
