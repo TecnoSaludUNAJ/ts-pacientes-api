@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using TP_AccessData;
 using TP_Application.Services;
 using TP_Domain.DTOs;
-using TP_Domain.Entities;
 
 namespace TP_Template_API.Controllers
 {
@@ -23,6 +17,7 @@ namespace TP_Template_API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Post(PacienteDTO paciente)
         {
             try
@@ -36,6 +31,7 @@ namespace TP_Template_API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Get()
         {
             try
@@ -49,6 +45,7 @@ namespace TP_Template_API.Controllers
         }
 
         [HttpGet("{Id?}")]
+        [Authorize]
         public IActionResult GetById(int Id)
         {
             try
@@ -66,6 +63,7 @@ namespace TP_Template_API.Controllers
             }
         }
         [HttpGet("dni/{Dni?}")]
+        [Authorize]
         public IActionResult GetById(string Dni)
         {
             try
@@ -83,6 +81,7 @@ namespace TP_Template_API.Controllers
             }
         }
         [HttpGet("userId/{usuarioId?}")]
+        [Authorize]
         public IActionResult GetByUsuarioId(int usuarioId)
         {
             try
