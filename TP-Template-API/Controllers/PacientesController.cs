@@ -91,7 +91,7 @@ namespace TP_Template_API.Controllers
                 {
                     return new JsonResult(paciente) { StatusCode = 200 };
                 }
-                return new JsonResult(paciente) { StatusCode = 204 };
+                return new JsonResult(paciente) { StatusCode = 404 };
             }
             catch (Exception e)
             {
