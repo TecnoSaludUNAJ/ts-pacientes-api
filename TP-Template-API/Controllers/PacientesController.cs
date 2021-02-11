@@ -81,7 +81,7 @@ namespace TP_Template_API.Controllers
             }
         }
         [HttpGet("userId/{usuarioId?}")]
-        [Authorize]
+        //[Authorize]
         public IActionResult GetByUsuarioId(int usuarioId)
         {
             try
