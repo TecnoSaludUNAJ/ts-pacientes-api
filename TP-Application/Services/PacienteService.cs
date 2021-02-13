@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TP_Domain.Commands;
 using TP_Domain.DTOs;
 using TP_Domain.Entities;
@@ -24,10 +23,17 @@ namespace TP_Application.Services
         {
             if(paciente.Apellido == "" || paciente.DNI == "" || paciente.Domicilio == "" || paciente.Email == "" || paciente.Estado_Civil == "" || paciente.Nacionalidad == "" || paciente.Nombre == "" || paciente.Sexo == "" || paciente.Telefono == "")
                 throw new Exception("Error al ingresar parametros: Ningun parametro ingresado puede estar vacio.");
-            if (paciente.Usuario_Id <= 0|| paciente.ObraSocial_Id <= 0)
-                throw new Exception("Error: Valor ingresado no válido: No se aceptan valores numeros menores a 1");
+            if (Validator.IntNegativeOrZero(paciente.Usuario_Id))
+                throw new Exception("Error: Campo Usuario_Id no valido, no puede ser menor a 0.");
+            if (Validator.IntNegativeOrZero(paciente.ObraSocial_Id))
+                throw new Exception("Error: Campo ObraSocial_Id no valido, no puede ser menor a 0.");
             if (paciente.Fecha_Nacim > DateTime.Today)
                 throw new Exception("Error al ingresar parametros: La fecha de nacimiento no puede ser superior al dia actual.");
+            if(!Validator.DNIValid(paciente.DNI))
+                throw new Exception("Campo DNI solo acepta valores numericos con mínimo de 7 dígitos.");
+            if (!Validator.EmailValid(paciente.Email))
+                throw new Exception("El campo Email no es válido.");
+
             Paciente entity = new Paciente
             {
                 Apellido = paciente.Apellido,

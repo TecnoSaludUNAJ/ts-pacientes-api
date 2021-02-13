@@ -21,8 +21,10 @@ namespace TP_Application.Services
 
         public ResponseObraSocialDTO CreateObraSocial(ObraSocialDTO obrasocial)
         {
-            if (obrasocial.ObraSocial_Nombre == "" || obrasocial.ObraSocial_Sigla == "")
-                throw new Exception("Error: Los parametros ingresados no pueden estar vacios.");
+            if (obrasocial.ObraSocial_Nombre == "")
+                throw new Exception("El campo Nombre no puede estar vacío.");
+            if (obrasocial.ObraSocial_Sigla == "")
+                throw new Exception("El campo Sigla no puede estar vacío.");
             ObraSocial entity = new ObraSocial
             {
                 ObraSocial_Nombre = obrasocial.ObraSocial_Nombre,
@@ -43,7 +45,7 @@ namespace TP_Application.Services
         {
             List<ResponseObraSocialDTO> ObraSocialList = _query.GetAllObrasSociales();
             if (!ObraSocialList.Any())
-                throw new Exception("Error: No se encuentran obras sociales almacenadas.");
+                throw new Exception("Error: No se encuentran obras sociales.");
             return ObraSocialList;
         }
 
